@@ -34,36 +34,36 @@ export const submitText = async (text) => {
 
 // ✅ Function to "snap" a post (like it only once)
 export const snapPost = async (postId) => {
-  const snapKey = `snapped-${postId}`; // Unique key in local storage
-
-  // Check if the user has already snapped this post
-  if (localStorage.getItem(snapKey)) {
-    alert("You have already snapped this post!");
-    return false;
-  }
-
-  try {
-    const postRef = doc(db, "userTexts", postId);
-    const postSnap = await getDoc(postRef);
-
-    if (postSnap.exists()) {
-      const currentSnaps = postSnap.data().snaps || 0;
-      await updateDoc(postRef, { snaps: currentSnaps + 1 });
-
-      // Store in localStorage to prevent multiple snaps
-      localStorage.setItem(snapKey, "true");
-
-      return true;
-    } else {
-      console.error("Post does not exist.");
+    const snapKey = `snapped-${postId}`; // Unique key in local storage
+  
+    try {
+      const postRef = doc(db, "userTexts", postId);
+      const postSnap = await getDoc(postRef);
+  
+      if (postSnap.exists()) {
+        let currentSnaps = postSnap.data().snaps || 0;
+        let hasSnapped = localStorage.getItem(snapKey); // Check if user snapped
+  
+        if (hasSnapped) {
+          // User is unliking (decrement snap count)
+          await updateDoc(postRef, { snaps: Math.max(currentSnaps - 1, 0) }); // Prevent negatives
+          localStorage.removeItem(snapKey); // Remove snap tracking
+          return "unsnapped"; // Return status
+        } else {
+          // User is liking (increment snap count)
+          await updateDoc(postRef, { snaps: currentSnaps + 1 });
+          localStorage.setItem(snapKey, "true"); // Store snap tracking
+          return "snapped"; // Return status
+        }
+      } else {
+        console.error("Post does not exist.");
+        return false;
+      }
+    } catch (error) {
+      console.error("Error snapping post:", error);
       return false;
     }
-  } catch (error) {
-    console.error("Error snapping post:", error);
-    return false;
-  }
-};
-
+  };
 // ✅ Export Firebase
 export { db };
 export default app;
