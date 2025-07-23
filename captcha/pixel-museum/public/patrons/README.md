@@ -1,7 +1,3 @@
-# Patron Images Directory
-
-This directory is for storing images of your generous patrons/donors.
-
 ## How to Add Patron Images:
 
 1. **Upload donor images** to this `/public/patrons/` directory
@@ -21,17 +17,8 @@ const sampleDonors = [
   {
     id: '1',
     name: 'John Doe',
-    image: '/patrons/patron-john-doe.jpg', // Your uploaded image
-    donationTier: 'Gold', // Gold, Silver, or Bronze
+    image: '/patrons/patron-john-doe.jpg',
     joinDate: '2024-01-15' // When they became a patron
   }
 ];
 ```
-
-## Support Tiers:
-
-- **Gold**: Top-tier supporters
-- **Silver**: Mid-level supporters  
-- **Bronze**: Entry-level supporters
-
-Simply replace the placeholder data with your real patron information and their uploaded images! 

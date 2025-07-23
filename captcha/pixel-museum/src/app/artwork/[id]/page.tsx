@@ -80,7 +80,7 @@ export default function ArtworkPage() {
     
     const shareData = {
       title: `${artwork?.title} by ${artwork?.author}`,
-      text: `Come check out this junk: "${artwork?.title}" by ${artwork?.author} - Digital Junk Gallery`,
+      text: `Check this shit out: "${artwork?.title}" by ${artwork?.author} - Digital Junk Gallery`,
       url: window.location.href,
     };
 
@@ -90,14 +90,14 @@ export default function ArtworkPage() {
       } else {
         // Fallback: copy to clipboard
         await navigator.clipboard.writeText(window.location.href);
-        alert('Link copied to clipboard!');
+        alert('Link copied! Now go share this shit!');
       }
     } catch (error) {
       console.error('Error sharing:', error);
       // Fallback: copy to clipboard
       try {
         await navigator.clipboard.writeText(window.location.href);
-        alert('Link copied to clipboard!');
+        alert('Link copied! Now go share this shit!');
       } catch (clipboardError) {
         console.error('Error copying to clipboard:', clipboardError);
       }
