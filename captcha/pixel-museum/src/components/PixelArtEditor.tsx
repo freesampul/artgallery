@@ -98,8 +98,15 @@ export default function PixelArtEditor({ onArtworkChange }: PixelArtEditorProps)
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    const col = Math.floor(x / PIXEL_SIZE);
-    const row = Math.floor(y / PIXEL_SIZE);
+    // Account for canvas scaling - convert from display coordinates to canvas coordinates
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    
+    const canvasX = x * scaleX;
+    const canvasY = y * scaleY;
+    
+    const col = Math.floor(canvasX / PIXEL_SIZE);
+    const row = Math.floor(canvasY / PIXEL_SIZE);
     
     if (col >= 0 && col < GRID_SIZE && row >= 0 && row < GRID_SIZE) {
       return { row, col };

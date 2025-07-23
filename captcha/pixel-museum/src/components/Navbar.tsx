@@ -13,16 +13,16 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-4 hover:opacity-80 transition-all duration-300">
-            <div className="bg-gallery-charcoal p-2 sm:p-3 rounded-xl sm:rounded-2xl shadow-lg">
-              <Palette className="h-5 w-5 sm:h-7 sm:w-7 text-gallery-white" />
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Digital Junk Logo" 
+              className="h-8 w-8 sm:h-12 sm:w-12 object-contain"
+            />
             <div className="flex flex-col">
               <span className="gallery-title text-lg sm:text-2xl text-gallery-charcoal">
-                Pixel Museum
+                Digital Junk
               </span>
-              <span className="gallery-label text-gallery-dark/60 -mt-1 hidden sm:block">
-                Digital Gallery
-              </span>
+
             </div>
           </Link>
 
@@ -40,7 +40,7 @@ export default function Navbar() {
               className="flex items-center space-x-2 gallery-body text-gallery-dark hover:text-gallery-charcoal px-3 lg:px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-gallery-light/50"
             >
               <Trophy className="h-4 w-4" />
-              <span className="hidden lg:inline">Today's Competition</span>
+              <span className="hidden lg:inline">Fresh Garbage</span>
               <span className="lg:hidden">Today</span>
             </Link>
             <Link 
@@ -48,16 +48,16 @@ export default function Navbar() {
               className="flex items-center space-x-2 gallery-body text-gallery-dark hover:text-gallery-charcoal px-3 lg:px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-gallery-light/50"
             >
               <Heart className="h-4 w-4" />
-              <span className="hidden lg:inline">Patreons Wing</span>
-              <span className="lg:hidden">Patreons</span>
+              <span className="hidden lg:inline">Trash Patrons</span>
+              <span className="lg:hidden">Patrons</span>
             </Link>
             <Link 
               href="/submission" 
               className="flex items-center space-x-2 bg-gallery-charcoal text-gallery-white px-3 lg:px-6 py-3 rounded-xl hover:bg-gallery-black transition-all duration-300 font-medium shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              <Palette className="h-4 w-4" />
-              <span>Submit Art</span>
-            </Link>
+                          >
+                <Palette className="h-4 w-4" />
+                <span>Dump Junk</span>
+              </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -95,16 +95,16 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 <Heart className="h-5 w-5" />
-                <span>Patreons Wing</span>
+                <span>Trash Patrons</span>
               </Link>
               <Link 
                 href="/submission" 
                 className="flex items-center space-x-3 bg-gallery-charcoal text-gallery-white hover:bg-gallery-black px-3 py-3 rounded-lg font-medium shadow-lg transition-all duration-300 mt-2"
                 onClick={() => setIsOpen(false)}
-              >
-                <Palette className="h-5 w-5" />
-                <span>Submit Art</span>
-              </Link>
+                              >
+                  <Palette className="h-5 w-5" />
+                  <span>Dump Junk</span>
+                </Link>
             </div>
           </div>
         )}

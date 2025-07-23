@@ -57,7 +57,7 @@ export default function GalleryCard({ artwork }: GalleryCardProps) {
           </div>
 
           <div className="px-3 py-1.5 bg-gallery-gold/20 text-gallery-charcoal rounded-lg text-sm shadow-sm">
-            <span className="gallery-label font-medium">Hall of Fame</span>
+            <span className="gallery-label font-medium">The Vault</span>
           </div>
         </div>
         

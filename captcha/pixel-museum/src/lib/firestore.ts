@@ -49,9 +49,15 @@ export interface Submission {
   createdAt: Timestamp;
 }
 
-// Get today's date in YYYY-MM-DD format
+// Get today's date in YYYY-MM-DD format in site owner's timezone
+// This ensures the daily competition resets at a consistent time each day
 export const getTodayString = (): string => {
-  return new Date().toISOString().split('T')[0];
+  const now = new Date();
+  // Use a specific timezone offset for consistent daily resets
+  // Set to NYC Eastern Time: EST (UTC-5) in winter, EDT (UTC-4) in summer
+  const timezoneOffset = -5; // NYC Eastern timezone (winter EST)
+  const localDate = new Date(now.getTime() + (timezoneOffset * 60 * 60 * 1000));
+  return localDate.toISOString().split('T')[0];
 };
 
 // Check if IP has already submitted today

@@ -2,8 +2,12 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Pixel Museum',
-  description: 'A virtual museum for pixel art creations',
+  title: 'Digital Junk',
+  description: 'A chaotic collection of digital art treasures',
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({

@@ -25,12 +25,12 @@ export default function PatreonsWing() {
             textShadow: '4px 4px 0px #00ff00, 8px 8px 0px #0000ff',
             transform: 'rotate(-2deg)'
           }}>
-            🎨 PATREONS WING 🎨
+            🗑️ PATREONS DUMPSTER 🗑️
           </h1>
           
           <div className="text-2xl font-bold mb-6 overflow-hidden whitespace-nowrap" style={{ color: '#8A2BE2' }}>
             <div className="animate-marquee inline-block">
-              ✨ WELCOME TO OUR AMAZING SUPPORTERS PAGE! ✨
+              ✨ WELCOME TO OUR AMAZING TRASH PATRONS! ✨
             </div>
           </div>
           
@@ -47,7 +47,7 @@ export default function PatreonsWing() {
         {/* Terrible donation button */}
         <div className="text-center mb-8">
           <a 
-            href="https://www.paypal.com" 
+            href="https://buymeacoffee.com/sampul" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block"
@@ -109,7 +109,7 @@ export default function PatreonsWing() {
           <div className="mt-8 text-center">
             <div className="text-xl font-bold mb-4 overflow-hidden whitespace-nowrap" style={{ color: '#FF4500' }}>
               <div className="animate-marquee-reverse inline-block">
-                🎪 Thank you for supporting our pixel art extravaganza! 🎪
+                🎪 Thank you for supporting our digital junk pile! 🎪
               </div>
             </div>
             

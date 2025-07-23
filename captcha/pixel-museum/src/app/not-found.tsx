@@ -53,20 +53,14 @@ export default function NotFound() {
           <div className="text-center">
             {/* Artwork */}
             <div className="mb-8 inline-block">
-              <div className="relative shadow-lg">
-                <div className="h-64 w-64 flex items-center justify-center p-2 mx-auto">
+              <div className="shadow-md">
+                <div className="h-64 w-64 flex items-center justify-center p-9 mx-auto">
                   <img
                     src={randomWinner.artwork}
                     alt={randomWinner.title}
                     className="max-h-full max-w-full object-contain"
                   />
                 </div>
-                {/* Frame overlay */}
-                <img 
-                  src="/frames/frame.png" 
-                  alt="" 
-                  className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
-                />
               </div>
             </div>
 

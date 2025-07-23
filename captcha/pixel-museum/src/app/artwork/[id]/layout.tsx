@@ -10,14 +10,14 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     // or fetch this data server-side for better SEO
     
     return {
-      title: `Pixel Art Gallery - Artwork`,
-      description: `Check out this amazing pixel art creation from our community gallery!`,
+      title: `Digital Junk - Artwork`,
+      description: `Check out this amazing digital art creation from our chaotic collection!`,
       openGraph: {
-        title: `Pixel Art Gallery - Artwork`,
-        description: `Check out this amazing pixel art creation from our community gallery!`,
+        title: `Digital Junk - Artwork`,
+        description: `Check out this amazing digital art creation from our chaotic collection!`,
         type: 'website',
         url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/artwork/${artworkId}`,
-        siteName: 'Pixel Museum',
+        siteName: 'Digital Junk',
         images: [
           {
             url: '/frames/frame.png', // Fallback image
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       },
       twitter: {
         card: 'summary_large_image',
-        title: `Pixel Art Gallery - Artwork`,
-        description: `Check out this amazing pixel art creation from our community gallery!`,
+        title: `Digital Junk - Artwork`,
+        description: `Check out this amazing digital art creation from our chaotic collection!`,
         images: ['/frames/frame.png'],
       },
       robots: {
@@ -47,8 +47,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     
     // Fallback metadata
     return {
-      title: 'Pixel Art Gallery',
-      description: 'Discover amazing pixel art creations from our community',
+      title: 'Digital Junk',
+      description: 'Discover amazing digital art treasures from our chaotic collection',
     };
   }
 }

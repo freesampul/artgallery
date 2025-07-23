@@ -56,7 +56,7 @@ export default function VisitorTracker({ showCount = false, className = '', styl
   return (
     <div className={className} style={style}>
       <span className="animate-pulse">
-        🔥 THE MUSEUM HAS HOSTED {loading ? '...' : visitorCount.toLocaleString()} GUESTS! 🔥
+        🔥 DIGITAL JUNK HAS HOSTED {loading ? '...' : visitorCount.toLocaleString()} GUESTS! 🔥
       </span>
     </div>
   );

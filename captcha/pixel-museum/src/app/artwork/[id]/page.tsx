@@ -80,7 +80,7 @@ export default function ArtworkPage() {
     
     const shareData = {
       title: `${artwork?.title} by ${artwork?.author}`,
-      text: `Check out this amazing pixel art: "${artwork?.title}" by ${artwork?.author}`,
+      text: `Come check out this junk: "${artwork?.title}" by ${artwork?.author} - Digital Junk Gallery`,
       url: window.location.href,
     };
 
@@ -156,7 +156,7 @@ export default function ArtworkPage() {
             className="inline-flex items-center text-gallery-dark/70 hover:text-gallery-charcoal transition-colors duration-200"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Gallery
+            Back to Junk
           </Link>
         </div>
 
@@ -168,7 +168,7 @@ export default function ArtworkPage() {
               <img
                 src={artwork.artwork}
                 alt={artwork.title}
-                className="w-full h-full object-contain p-8"
+                className="w-full h-full object-contain p-14"
               />
             </div>
           </div>

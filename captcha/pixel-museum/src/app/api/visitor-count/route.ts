@@ -21,9 +21,14 @@ function getClientIP(request: NextRequest): string {
   return 'unknown';
 }
 
-// Get today's date string
+// Get today's date string in site owner's timezone  
 function getTodayString(): string {
-  return new Date().toISOString().split('T')[0];
+  const now = new Date();
+  // Use a specific timezone offset for consistent daily resets
+  // Set to NYC Eastern Time: EST (UTC-5) in winter, EDT (UTC-4) in summer
+  const timezoneOffset = -5; // NYC Eastern timezone (winter EST)
+  const localDate = new Date(now.getTime() + (timezoneOffset * 60 * 60 * 1000));
+  return localDate.toISOString().split('T')[0];
 }
 
 export async function POST(request: NextRequest) {

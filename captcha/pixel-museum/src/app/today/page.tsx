@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import ArtworkCard from '@/components/ArtworkCard';
 import CompactArtworkCard from '@/components/CompactArtworkCard';
 import CountdownTimer from '@/components/CountdownTimer';
+import VisitorTracker from '@/components/VisitorTracker';
 import type { Artwork } from '@/lib/firestore';
 import { Calendar, Trophy } from 'lucide-react';
 
@@ -54,30 +55,24 @@ export default function TodaysArtworks() {
   });
 
   return (
-    <div className="min-h-screen gallery-gradient">
+    <div className="min-h-screen bg-white">
+      <VisitorTracker showCount={false} />
       <Navbar />
       
-      <main className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center space-x-4 mb-6">
-            <Calendar className="h-8 w-8 text-gallery-accent" />
-            <h1 className="gallery-title text-5xl lg:text-6xl text-gallery-charcoal">
-              Today's Competition
-            </h1>
-          </div>
+      <main className="max-w-4xl mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-light text-gray-800 mb-4">
+            Fresh Garbage
+          </h1>
           
-          {/* Small countdown timer under title */}
-          <div className="mb-6">
-            <CountdownTimer />
-          </div>
-          
-          <p className="gallery-subtitle text-2xl text-gallery-dark/80 mb-4">
+          <p className="text-sm text-gray-600 mb-2">
             {today}
           </p>
           
-          <p className="gallery-body text-lg text-gallery-dark/70 max-w-3xl mx-auto leading-relaxed mb-8">
-            Cast your vote for today's most exceptional pixel art. The winning piece will be permanently 
-            archived in our Hall of Fame at midnight Eastern Time.
+          <CountdownTimer />
+          
+          <p className="text-gray-700 max-w-lg mx-auto mt-6">
+            Vote for today's winner. Resets at midnight.
           </p>
           
           {artworks.length > 0 && (
@@ -112,45 +107,41 @@ export default function TodaysArtworks() {
               ))}
             </div>
           ) : error ? (
-            <div className="text-center py-12">
-              <div className="text-red-500 text-lg mb-4">❌ {error}</div>
-              <button
-                onClick={() => window.location.reload()}
-                className="px-4 py-2 bg-pixel-500 text-white rounded-xl hover:bg-pixel-600 transition-colors"
-              >
-                Try Again
-              </button>
-            </div>
+                          <div className="text-center py-20">
+                <h3 className="text-xl text-gray-800 mb-4">
+                  Failed to Load
+                </h3>
+                <p className="text-gray-600 mb-8">{error}</p>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="bg-black text-white px-4 py-2 hover:bg-gray-800"
+                >
+                  Try Again
+                </button>
+              </div>
           ) : artworks.length === 0 ? (
-            <div className="text-center py-12 max-w-md mx-auto">
-              <div className="text-6xl mb-6">🎨</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                No submissions yet today!
+            <div className="text-center py-20">
+              <h3 className="text-xl text-gray-800 mb-4">
+                No submissions yet
               </h3>
-              <p className="text-lg text-gray-600 mb-8">
-                Be the first to submit your pixel art for today's competition.
-              </p>
               <a
                 href="/submission"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pixel-500 to-museum-500 text-white rounded-xl hover:scale-105 transition-all font-medium shadow-lg"
+                className="bg-black text-white px-4 py-2 hover:bg-gray-800"
               >
-                ✨ Submit Your Art
+                Submit
               </a>
             </div>
           ) : (
             <div className="space-y-8">
               {/* Winner/Leader section if there are votes */}
               {artworks[0]?.votes > 0 && (
-                <div className="bg-gallery-gold/5 border border-gallery-gold/20 rounded-3xl p-12 mb-16 animate-fade-in">
-                  <div className="text-center mb-12">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gallery-gold/20 rounded-full mb-6">
-                      <Trophy className="h-10 w-10 text-gallery-gold" />
-                    </div>
-                    <h2 className="gallery-title text-4xl text-gallery-charcoal mb-4">
+                <div className="border-b border-gray-200 pb-8 mb-8">
+                  <div className="text-center mb-6">
+                    <h2 className="text-xl text-gray-800 mb-2">
                       Current Leader
                     </h2>
-                    <p className="gallery-subtitle text-lg text-gallery-dark/70">
-                      Leading the competition with {artworks[0].votes} votes
+                    <p className="text-sm text-gray-600">
+                      {artworks[0].votes} votes
                     </p>
                   </div>
                   
