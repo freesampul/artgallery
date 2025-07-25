@@ -1,0 +1,35 @@
+name: Daily Winner Archive
+
+on:
+  schedule:
+    # Run daily at 5:00 AM UTC (midnight EST)
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  archive-winner:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Archive Yesterday's Winner
+      run: |
+        # Calculate yesterday's date in EST
+        yesterday=$(date -d "yesterday" -u +%Y-%m-%d)
+        echo "Archiving winner for date: $yesterday"
+        
+        # Call the archive API
+        response=$(curl -s -X POST \
+          -H "Content-Type: application/json" \
+          -d "{\"targetDate\":\"$yesterday\"}" \
+          https://digitaljunk.art/api/archive-winner)
+        
+        echo "API Response: $response"
+        
+        # Check if successful
+        if echo "$response" | grep -q '"success":true'; then
+          echo "✅ Successfully archived winner for $yesterday"
+        else
+          echo "❌ Failed to archive winner for $yesterday"
+          echo "$response"
+          exit 1
+        fi 
